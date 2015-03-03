@@ -18,8 +18,14 @@ module.exports = function(content, file, conf) {
         if (conf.ext && file.rExt == conf.ext) {
             f = true;
         }
-        if (f && conf.from ) {
-            content = content.replace(conf.from, conf.to || '');
+        if (f && conf.from) {
+            var to = conf.to || '';
+
+            if ( !util.isRegExp(conf.from) ){
+                conf.from = new RegExp( conf.from, 'g' );
+            }
+
+            content = content.replace(conf.from, to);
         }
     });
 
