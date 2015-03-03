@@ -4,7 +4,7 @@
 ##用法
 在fis-conf.js中配置：
 
-
+:::javascript
 fis.config.merge({
     modules : {
         preprocessor: {
@@ -22,3 +22,4 @@ fis.config.merge({
         }
     }
 });
+
